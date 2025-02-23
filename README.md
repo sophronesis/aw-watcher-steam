@@ -33,4 +33,9 @@ pip install .
 Find the config file in <a href = "https://docs.activitywatch.net/en/latest/directories.html#config"> config directory</a> and fill accordingly. 
 
 
+## Patches:
+
+* Changed "currently-playing-game" data to "title" so it can be viewed inside of Timeline tab of ActivityWatch
+* Added flake.nix, flake.lock, poetry2nix and updated pyproject.toml to build effortlessly with nix
+
 

@@ -9,6 +9,7 @@ packages = [{include = "aw_watcher_steam"}]
 python = "^3.10"
 requests = "^2.30.0"
 aw-client = "^0.5.12"
+setuptools = "^75.8.0"
 
 [build-system]
 requires = ["poetry-core"]

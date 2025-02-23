@@ -28,7 +28,7 @@ def get_currently_played_games(api_key, steam_id) -> dict:
     if response.status_code == 200: 
         response_data = response.json()["response"]["players"][0]
         if "gameextrainfo" in response_data: 
-            data["currently-playing-game"] = response_data["gameextrainfo"]
+            data["title"] = response_data["gameextrainfo"]
             data["game-id"] = response_data["gameid"]
         return data
     raise Exception("Steam API request error, error code:" + response.status_code + " " + response.text)
@@ -61,7 +61,7 @@ def main():
                 now = datetime.now(timezone.utc)
                 event = Event(timestamp=now, data = game_data)
                 client.heartbeat(bucket_name, event= event, pulsetime= poll_time + 1, queued=True)
-                currently_playing_game = game_data["currently-playing-game"]
+                currently_playing_game = game_data["title"]
                 print(f"Currently playing {currently_playing_game}")
             else: 
                 print("Currently not playing any game")
