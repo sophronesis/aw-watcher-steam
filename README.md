@@ -38,4 +38,29 @@ Find the config file in <a href = "https://docs.activitywatch.net/en/latest/dire
 * Changed "currently-playing-game" data to "title" so it can be viewed inside of Timeline tab of ActivityWatch
 * Added flake.nix, flake.lock, poetry2nix and updated pyproject.toml to build effortlessly with nix
 
+## Usage on NixOS:
+
+flake.nix:
+```
+inputs = {
+  ...
+  aw-watcher-steam.url = "github:sophronesis/aw-watcher-steam";
+  ...
+}
+...
+system = "x86_64-linux"
+...
+outputs = {self, ..., aw-watcher-steam, ...}@inputs
+```
+
+configuration.nix:
+```
+...
+environment.systemPackages = with pkgs; [
+  ...
+  inputs.aw-watcher-steam.packages."${system}".default
+  ...
+];
+```
+
 
