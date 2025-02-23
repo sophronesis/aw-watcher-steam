@@ -62,5 +62,6 @@ environment.systemPackages = with pkgs; [
   ...
 ];
 ```
+example would be available at https://gitlab.com/sophronesis/nixos-config shortly.
 
 
